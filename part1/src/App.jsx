@@ -10,6 +10,7 @@ const Header  = (props) => {
     </div>
   )
 }
+
 const Content   = (props) => {
   console.log(props)
   return (
