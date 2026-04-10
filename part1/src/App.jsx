@@ -98,7 +98,8 @@ const anecdotes = [
   const [bad, setBad] = useState(0)
   let average = (good - bad) / (good + neutral + bad)
   let positive_percentege = (good / (good + neutral + bad)) * 100
-
+  const maxKey = Object.keys(votes).reduce((a, b) =>
+  votes[a] > votes[b] ? a : b)
 
   return (
     <>
@@ -111,7 +112,8 @@ const anecdotes = [
     setVotes(copy)
   }} text='vote'/>
         <Display  title={`has ${votes[selected]} votes`}/>
-
+      <Display className='title' title={'Anecdote with most votes'}/>
+    <Display  title={anecdotes[maxKey]}/>
 
       <Display className='title' title={title1}/>
       <Button onClick={() => setGood(good + 1)} text='good'/>
