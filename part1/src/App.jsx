@@ -1,6 +1,17 @@
 import { useState } from 'react'
 import './index.css'
 
+const StatisticLine = (props) => {
+  console.log(props)
+  return (
+  <div>
+      <p >{props.text}</p>
+    </div>
+    )
+
+}
+
+
 const Statistics  = (props) => {
   console.log(props)
   if (props.good === 'good: 0' && props.neutral === 'neutral: 0' && props.bad === 'bad: 0') {
@@ -15,13 +26,12 @@ const Statistics  = (props) => {
   return (
     <div>
       <p className={props.className}>{props.title}</p>
-      <p >{props.good}</p>
-      <p >{props.neutral}</p>
-      <p >{props.bad}</p>
-      <p >{props.all}</p>
-      <p >{props.average_score}</p>
-      <p >{props.positive_percentege}</p>
-
+      <StatisticLine text={props.good}/>
+      <StatisticLine text={props.neutral}/>
+      <StatisticLine text={props.bad}/>
+      <StatisticLine text={props.all}/>
+      <StatisticLine text={props.average_score}/>
+      <StatisticLine text={props.positive_percentege}/>
     </div>
   )
 }
