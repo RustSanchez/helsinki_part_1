@@ -78,8 +78,18 @@ const anecdotes = [
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
     'The only way to go fast, is to go well.'
   ]
-
   const [selected, setSelected] = useState(0)
+
+  
+   const [votes, setVotes] = useState({
+  0: 0, 1: 0, 2: 0, 3: 0,
+  4: 0, 5: 0, 6: 0, 7: 0
+})
+
+    const copy = { ...votes }
+
+     
+ 
 
   const title1= 'give feedback'
   const title2 = 'statistics'
@@ -88,10 +98,20 @@ const anecdotes = [
   const [bad, setBad] = useState(0)
   let average = (good - bad) / (good + neutral + bad)
   let positive_percentege = (good / (good + neutral + bad)) * 100
+
+
   return (
     <>
       <Display  title={anecdotes[selected]}/>
       <Button onClick={() => setSelected(Math.floor(Math.random() * anecdotes.length))} text='next anecdote'/>
+
+      <Button onClick={() => {
+    const copy = { ...votes }
+    copy[selected] += 1
+    setVotes(copy)
+  }} text='vote'/>
+        <Display  title={`has ${votes[selected]} votes`}/>
+
 
       <Display className='title' title={title1}/>
       <Button onClick={() => setGood(good + 1)} text='good'/>
