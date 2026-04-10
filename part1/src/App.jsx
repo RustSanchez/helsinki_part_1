@@ -1,7 +1,21 @@
 import { useState } from 'react'
 import './index.css'
 
+const Statistics  = (props) => {
+  console.log(props)
+  return (
+    <div>
+      <p className={props.className}>{props.title}</p>
+      <p >{props.good}</p>
+      <p >{props.neutral}</p>
+      <p >{props.bad}</p>
+      <p >{props.all}</p>
+      <p >{props.average_score}</p>
+      <p >{props.positive_percentege}</p>
 
+    </div>
+  )
+}
 const Display  = (props) => {
   console.log(props)
   return (
@@ -32,13 +46,17 @@ function App() {
       <Button onClick={() => setNeutral(neutral + 1)} text='neutral'/>
       <Button onClick={() => setBad(bad + 1)} text='bad'/>
 
-      <Display className='title' title={title2}/>
-      <Display title={`good: ${good}`}/>
-      <Display title={`neutral: ${neutral}`}/>
-      <Display title={`bad: ${bad}`}/>
-      <Display title={`all: ${good + neutral + bad}`}/>
-      <Display title={`average score: ${average}`}/>
-      <Display title={`positive percentage: ${positive_percentege}%`}/>
+      <Statistics 
+        className='title' title={title2}
+        good={`good: ${good}`}
+        neutral={`neutral: ${neutral}`}
+        bad={`bad: ${bad}`}
+        all={`all: ${good + neutral + bad}`}
+        average_score={`average score: ${average}`}
+        positive_percentege={`positive percentage: ${positive_percentege}%`}
+      />
+
+    
     </> 
   )
 }
