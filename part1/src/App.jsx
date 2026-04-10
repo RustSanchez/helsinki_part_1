@@ -1,20 +1,12 @@
 import { useState } from 'react'
 import './index.css'
 
-const StatisticLine = (props) => {
-  console.log(props)
-  return (
-  <div>
-      <p >{props.text}</p>
-    </div>
-    )
 
-}
 
 
 const Statistics  = (props) => {
   console.log(props)
-  if (props.good === 'good: 0' && props.neutral === 'neutral: 0' && props.bad === 'bad: 0') {
+  if (props.good ===  0 && props.neutral ===  0 && props.bad === 0) {
     return (
       <>
         <p className={props.className}>{props.title}</p>
@@ -26,12 +18,36 @@ const Statistics  = (props) => {
   return (
     <div>
       <p className={props.className}>{props.title}</p>
-      <StatisticLine text={props.good}/>
-      <StatisticLine text={props.neutral}/>
-      <StatisticLine text={props.bad}/>
-      <StatisticLine text={props.all}/>
-      <StatisticLine text={props.average_score}/>
-      <StatisticLine text={props.positive_percentege}/>
+      <table>
+        <tbody>
+          <tr>
+            <td>good:</td>
+            <td>{props.good}</td>
+          </tr>
+          <tr>
+            <td>neutral:</td>
+            <td>{props.neutral}</td>
+          </tr>
+          <tr>
+            <td>bad:</td>
+            <td>{props.bad}</td>
+          </tr>
+          <tr>
+            <td>all:</td>
+            <td>{props.all}</td>
+          </tr>
+          <tr>
+            <td>average score:</td>
+            <td>{props.average_score}</td>
+          </tr>
+          <tr>
+            <td>positive percentage:</td>
+            <td>{props.positive_percentege}%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      
     </div>
   )
 }
@@ -67,12 +83,12 @@ function App() {
 
       <Statistics 
         className='title' title={title2}
-        good={`good: ${good}`}
-        neutral={`neutral: ${neutral}`}
-        bad={`bad: ${bad}`}
-        all={`all: ${good + neutral + bad}`}
-        average_score={`average score: ${average}`}
-        positive_percentege={`positive percentage: ${positive_percentege}%`}
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        all={good + neutral + bad}
+        average_score={average}
+        positive_percentege={positive_percentege}
       />
 
     
