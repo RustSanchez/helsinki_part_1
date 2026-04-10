@@ -23,8 +23,8 @@ function App() {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-
-
+  let average = (good - bad) / (good + neutral + bad)
+  let positive_percentege = (good / (good + neutral + bad)) * 100
   return (
     <>
       <Display className='title' title={title1}/>
@@ -36,6 +36,9 @@ function App() {
       <Display title={`good: ${good}`}/>
       <Display title={`neutral: ${neutral}`}/>
       <Display title={`bad: ${bad}`}/>
+      <Display title={`all: ${good + neutral + bad}`}/>
+      <Display title={`average score: ${average}`}/>
+      <Display title={`positive percentage: ${positive_percentege}%`}/>
     </> 
   )
 }
