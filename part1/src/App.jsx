@@ -3,6 +3,15 @@ import './index.css'
 
 const Statistics  = (props) => {
   console.log(props)
+  if (props.good === 'good: 0' && props.neutral === 'neutral: 0' && props.bad === 'bad: 0') {
+    return (
+      <>
+        <p className={props.className}>{props.title}</p>
+        <p>No feedback given yet.</p>
+      </> 
+    )
+  } 
+
   return (
     <div>
       <p className={props.className}>{props.title}</p>
